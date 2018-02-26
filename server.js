@@ -6,13 +6,31 @@ var app = express();
 app.use(morgan('combined'));
 
 //object stores the dynamic properties
-var articleOne = {
+var articles = {
+    article-one: {
     title: 'Article One | Dilpreet Chawla',
     heading: 'Article One',
     date: 'Feb 26, 2018',
     content: `<p>
                     This is the first article I wrote while creating this app.
                 </p>`
+    },
+    article-two:{
+    title: 'Article Two | Dilpreet Chawla',
+    heading: 'Article Two',
+    date: 'Mar 5, 2018',
+    content: `<p>
+                    This is the second article I wrote while creating this app.
+                </p>`
+    },
+    article-three:{
+    title: 'Article Three | Dilpreet Chawla',
+    heading: 'Article Three',
+    date: 'Mar 10, 2018',
+    content: `<p>
+                    This is the third article I wrote while creating this app.
+                </p>`
+    }
 };
 
 function createTemplate(data){
@@ -63,17 +81,14 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-app.get('/article-one', function (req, res) {
+//using express feature the part after : will be converted to a variable
+app.get('/:articleName', function (req, res) {
+    //articleName == article-one
+    //articles[articelName] = {} // content for article-one
+  var articleName = req.params.articleName;//feature of the express framework to extract the article name
   res.send(createTemplate(articleOne));
 });
 
-app.get('/article-two', function (req, res) {
-  res.send('Article two requested and will be served here.');    
-});
-
-app.get('/article-three', function (req, res) {
-  res.send('Article three requested and will be served here.');    
-});
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
