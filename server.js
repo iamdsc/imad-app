@@ -86,7 +86,7 @@ app.get('/:articleName', function (req, res) {
     //articleName == article-one
     //articles[articelName] = {} // content for article-one
   var articleName = req.params.articleName;//feature of the express framework to extract the article name
-  res.send(createTemplate(articleOne));
+  res.send(createTemplate(articleName);
 });
 
 
