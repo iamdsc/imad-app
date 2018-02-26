@@ -6,14 +6,14 @@ var app = express();
 app.use(morgan('combined'));
 
 //object stores the dynamic properties
-var article-one = {
+var articleOne = {
     title: 'Article One | Dilpreet Chawla',
     heading: 'Article One',
     date: 'Feb 26, 2018',
     content: `<p>
                     This is the first article I wrote while creating this app.
                 </p>`
-}
+};
 
 function createTemplate(data){
     var title = data.title;
@@ -64,7 +64,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/article-one', function (req, res) {
-  res.send(createTemplate(article-one));
+  res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two', function (req, res) {
