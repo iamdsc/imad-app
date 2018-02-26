@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 //object stores the dynamic properties
 var articles = {
-    article-one: {
+    'article-one': {
     title: 'Article One | Dilpreet Chawla',
     heading: 'Article One',
     date: 'Feb 26, 2018',
@@ -15,7 +15,7 @@ var articles = {
                     This is the first article I wrote while creating this app.
                 </p>`
     },
-    article-two:{
+    'article-two':{
     title: 'Article Two | Dilpreet Chawla',
     heading: 'Article Two',
     date: 'Mar 5, 2018',
@@ -23,7 +23,7 @@ var articles = {
                     This is the second article I wrote while creating this app.
                 </p>`
     },
-    article-three:{
+    'article-three':{
     title: 'Article Three | Dilpreet Chawla',
     heading: 'Article Three',
     date: 'Mar 10, 2018',
