@@ -91,14 +91,6 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-//using express feature the part after : will be converted to a variable
-app.get('/:articleName', function (req, res) {
-    //articleName == article-one
-    //articles[articelName] = {} // content for article-one
-  var articleName = req.params.articleName;//feature of the express framework to extract the article name
-  res.send(createTemplate(articles[articleName]));
-});
-
 var names=[];
 app.get('/submit-name', function(req, res){ //URL /submit-name?name=....
     //Get the name from the request
@@ -108,6 +100,16 @@ app.get('/submit-name', function(req, res){ //URL /submit-name?name=....
     //JSON - Javascript Object Notation - it is a way of converting JS objects to string.  
     res.send(JSON.stringify(names));
 });
+
+//using express feature the part after : will be converted to a variable
+app.get('/:articleName', function (req, res) {
+    //articleName == article-one
+    //articles[articelName] = {} // content for article-one
+  var articleName = req.params.articleName;//feature of the express framework to extract the article name
+  res.send(createTemplate(articles[articleName]));
+});
+
+
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
